@@ -1,12 +1,15 @@
-#include <iostream>
-#include "basicSort/selectionSort.h"
+
+#include "basicSort/SelectionSort.h"
+#include "SortTestHelper.h"
+#include "basicSort/InsertionSort.h"
 
 int main() {
-    int a[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    selectionSort(a, 10);
-    for (int i : a) {
-        cout << i << " ";
-    }
-    cout << endl;
+    int n = 10000;
+    int *a = SortTestHelper::generateRandomArray(n, 0, n);
+    //selectionSort(a, n);
+    //insertionSort(a, n);
+    insertionSort2(a, n);
+    SortTestHelper::printArray(a, n);
+    delete[] a;
     return 0;
 }
